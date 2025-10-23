@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  django:
+    build: .
+    container_name: lms_django
+    command: python lms_single.py
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    restart: always
+
+  flask:
+    build: .
+    container_name: lms_flask
+    command: python lms_single.py
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    restart: always
